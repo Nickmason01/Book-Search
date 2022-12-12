@@ -10,10 +10,10 @@ const resolvers = {
     user: async (parent, { userId }) => {
       return User.findOne({ _id: userId });
     },
-    book: async (parent, { title }) => {
-      const params = title ? { title } : {};
-      return Book.find({ params });
-    },
+    // book: async (parent, { title }) => {
+    //   const params = title ? { title } : {};
+    //   return Book.find({ params });
+    // },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
@@ -21,7 +21,7 @@ const resolvers = {
       throw new AuthenticationError("You must be logged in!");
     },
   },
-  Mutations: {
+  Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
