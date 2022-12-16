@@ -30,15 +30,15 @@ const resolvers = {
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
-      if (!User) {
-        throw new AuthenticationError("No profile found");
-      }
+      // if (!User) {
+      //   throw new AuthenticationError("No profile found");
+      // }
 
-      const correctPass = await user.isCorrectPassword(password);
+      // const correctPass = await user.isCorrectPassword(password);
 
-      if (!correctPass) {
-        throw new AuthenticationError("no profile found");
-      }
+      // if (!correctPass) {
+      //   throw new AuthenticationError("no profile found");
+      // }
 
       const token = signToken(user);
       return { token, user };
