@@ -62,8 +62,8 @@ const SearchBooks = () => {
   };
 
   // create function to handle saving a book to our database
-  const HandleSaveBook = async () => {
-    const [bookState, setBookState] = useState({
+  const HandleSaveBook = () => {
+    const [book, setBook] = useState({
       authors: [""],
       description: "",
       bookId: "",
@@ -73,17 +73,13 @@ const SearchBooks = () => {
     });
     const [saveBook, { error }] = useMutation(SAVE_BOOK);
 
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
-
       try {
-        const data = await saveBook({
-          variables: { ...bookState },
+        const data =  saveBook({
+          variables: {... book  },
         });
       } catch (err) {
         console.error(err);
       }
-    };
   };
   return (
     <>

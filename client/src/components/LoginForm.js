@@ -33,7 +33,7 @@ const LoginForm = (props) => {
         variables: {...userFormData}
       });
 
-      Auth.login(data.loginUser.token)
+      Auth.login(data.login.user.token)
 
   
     } catch (err) {

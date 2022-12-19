@@ -29,6 +29,7 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
+    
 
       // if (!User) {
       //   throw new AuthenticationError("No profile found");
