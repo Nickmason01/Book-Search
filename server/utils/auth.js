@@ -11,7 +11,7 @@ module.exports = {
       token = token.split(" ").pop().trim();
     }
 
-    if (!token) {
+    if (!token){
       return req;
     }
 
