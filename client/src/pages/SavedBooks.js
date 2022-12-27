@@ -11,7 +11,6 @@ import { REMOVE_BOOK } from '../utils/mutations';
 const SavedBooks = () => {
   const [UserData, setUserData] = useState({});
 
-  // use this to determine if `useEffect()` hook needs to run again
   const userDataLength = Object.keys(UserData).length;
 
   const {loading, data} = useQuery(GET_ME);
@@ -30,8 +29,6 @@ const SavedBooks = () => {
     }
   });
 
-
-  // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (savedBooks) => {
     try {
       const data = await removeBook({
@@ -42,7 +39,7 @@ const SavedBooks = () => {
       console.error(err);
     }
    
-   };
+  };
 
   // if data isn't here yet, say so
   if (loading) {
